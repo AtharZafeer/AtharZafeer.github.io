@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import LocationList from './LocationList';
+import LocationList from './components/LocationList';
 
 class App extends Component {
     /**
@@ -10,74 +10,74 @@ class App extends Component {
         this.state = {
             'alllocations': [
                 {
-                    'name': "Bhaskar Vidhya Ashram",
-                    'type': "Private School",
-                    'latitude': 26.9053803,
-                    'longitude': 75.7259351,
-                    'streetAddress': "Lalarpura Road, Gandhi Path"
+                    'name': "Shree Mithai",
+                    'type': "Resturant",
+                    'latitude': 13.07211832463662,
+                    'longitude': 80.24786485275499,
+                    'streetAddress': "T.V Rd, IN"
                 },
                 {
-                    'name': "Hotel Chhavi Holidays",
+                    'name': "Subway",
                     'type': "Hotel",
-                    'latitude': 26.9055311,
-                    'longitude': 75.728137,
-                    'streetAddress': "Plot No. 11/12, Vivek Vihar"
+                    'latitude': 13.082454635954866,
+                    'longitude': 80.2109266216941,
+                    'streetAddress': "Shanthi Colony"
                 },
                 {
-                    'name': "Handi",
+                    'name': "Kabab Corner",
                     'type': "Restaurant",
-                    'latitude': 26.906990,
-                    'longitude': 75.742848,
-                    'streetAddress': "18, Gautam Marg, Vaishali Nagar"
+                    'latitude': 13.06016274522497,
+                    'longitude': 80.25448502964797,
+                    'streetAddress': "Greams Rd, Thousand Lights East,"
                 },
                 {
-                    'name': "INOX - Amrapali",
-                    'type': "Movie Theater",
-                    'latitude': 26.912631,
-                    'longitude': 75.743389,
-                    'streetAddress': "C-1, Vaibhav Complex"
+                    'name': "Links",
+                    'type': "food",
+                    'latitude': 13.079985797801971,
+                    'longitude': 80.25460515237084,
+                    'streetAddress': "Purasarawalkam"
                 },
                 {
-                    'name': "Blue Dart",
-                    'type': "Courier Service",
-                    'latitude': 26.911103,
-                    'longitude': 75.738878,
-                    'streetAddress': "Vaishali Tower, Vaishali Nagar"
+                    'name': "Chamiers Cafe",
+                    'type': "Coffee",
+                    'latitude': 13.028241246553115,
+                    'longitude': 80.25024020459566,
+                    'streetAddress': "Chamiers Rd",
                 },
                 {
-                    'name': "Hotel Seven Seas",
-                    'type': "3-Star Hotel",
-                    'latitude': 26.906069,
-                    'longitude': 75.739583,
+                    'name': "The Marina",
+                    'type': "Seafood Restaurant",
+                    'latitude': 13.067310668481305,
+                    'longitude': 80.25211702382008,
                     'streetAddress': "A-6, Nemi Nagar, Gandhi Path"
                 },
                 {
-                    'name': "Global Heart & General Hospital",
-                    'type': "Hospital",
-                    'latitude': 26.905506,
-                    'longitude': 75.738762,
-                    'streetAddress': "C1/27, Opposite Bharat Apartment"
+                    'name': "Subway",
+                    'type': "Hotel",
+                    'latitude': 13.061402842754942,
+                    'longitude': 80.24852081154127,
+                    'streetAddress': "Wallace Garden Road, Nungambakkam"
                 },
                 {
-                    'name': "Shri Swaminarayan Mandir",
-                    'type': "Hindu Temple",
-                    'latitude': 26.902167,
-                    'longitude': 75.740999,
-                    'streetAddress': "Sector 9, Chitrakoot"
+                    'name': "Barbeque Nation",
+                    'type': "resturant",
+                    'latitude': 13.052679566222576,
+                    'longitude': 80.21255043668754,
+                    'streetAddress': "Bhimas, 2nd Floor (Vadapalani)"
                 },
                 {
-                    'name': "Pratap Marriage Garden",
-                    'type': "Banquet Hall",
-                    'latitude': 26.906464,
-                    'longitude': 75.732889,
-                    'streetAddress': "Arpit Nagar, B Block"
+                    'name': "Basil - With a Twist",
+                    'type': "resturant",
+                    'latitude': 13.049632370784241,
+                    'longitude': 80.24220962550794,
+                    'streetAddress': "58A, Habibullah Road, T Nagar"
                 },
                 {
-                    'name': "ICICI Bank",
-                    'type': "Bank",
-                    'latitude': 26.913179,
-                    'longitude': 75.743447,
-                    'streetAddress': "Lalarpura Road, Gandhi Path"
+                    'name': "Tuscanna At Chamiers",
+                    'type': "resturant",
+                    'latitude': 13.029150852305433,
+                    'longitude': 80.24828935411561,
+                    'streetAddress': "Chamiers Road (Nandanam)"
                 }
             ],
             'map': '',
@@ -96,7 +96,7 @@ class App extends Component {
         // so Google Maps can invoke it
         window.initMap = this.initMap;
         // Asynchronously load the Google Maps script, passing in the callback reference
-        loadMapJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyAimTkCuz__9dLVUxRpe-nWOcxvg1noj1Y&v=3&callback=initMap')
+        loadMapJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyCPi0o_tjNjKYYDe_6nYg82r0leI7kKlOE&callback=initMap')
     }
 
     /**
@@ -108,7 +108,7 @@ class App extends Component {
         var mapview = document.getElementById('map');
         mapview.style.height = window.innerHeight + "px";
         var map = new window.google.maps.Map(mapview, {
-            center: {lat: 26.907502, lng: 75.737586},
+            center: {lat: 13.07211832463662, lng:80.24786485275499},
             zoom: 15,
             mapTypeControl: false
         });
@@ -180,8 +180,8 @@ class App extends Component {
      */
     getMarkerInfo(marker) {
         var self = this;
-        var clientId = "TPIDDHBKB2QFBWEV2MPDOFGUSWXCXGAA5IVOWEMN5ASR3UJW";
-        var clientSecret = "4HB1ZZJBVXC3F0BREBPSGXYK0VZ5ALS4XRNJZSBP1JROG0DE";
+        var clientId = "BVOKFTFGPMBPE4CODCE2O4PTW1002SQCRGIS4TAOE3RBSC4P";
+        var clientSecret = "1YKEEUR2DTYJRU1YBPKNDF2BME1TB1KXEDQNFVLKVCDGBHWB";
         var url = "https://api.foursquare.com/v2/venues/search?client_id=" + clientId + "&client_secret=" + clientSecret + "&v=20130815&ll=" + marker.getPosition().lat() + "," + marker.getPosition().lng() + "&limit=1";
         fetch(url)
             .then(

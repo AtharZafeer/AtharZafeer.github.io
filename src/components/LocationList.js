@@ -9,8 +9,8 @@ class LocationList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            'locations': '',
-            'query': '',
+            'placelocations': '',
+            'searchquery': '',
             'suggestions': true,
         };
 
@@ -35,14 +35,14 @@ class LocationList extends Component {
         });
 
         this.setState({
-            'locations': locations,
-            'query': value
+            'placelocations': locations,
+            'searchquery': value
         });
     }
 
     componentWillMount() {
         this.setState({
-            'locations': this.props.alllocations
+            'placelocations': this.props.alllocations
         });
     }
 
@@ -59,7 +59,7 @@ class LocationList extends Component {
      * Render function of LocationList
      */
     render() {
-        var locationlist = this.state.locations.map(function (listItem, index) {
+        var locationlist = this.state.placelocations.map(function (listItem, index) {
             return (
                 <LocationItem key={index} openInfoWindow={this.props.openInfoWindow.bind(this)} data={listItem}/>
             );
@@ -68,7 +68,7 @@ class LocationList extends Component {
         return (
             <div className="search">
                 <input role="search" aria-labelledby="filter" id="search-field" className="search-field" type="text" placeholder="Filter"
-                       value={this.state.query} onChange={this.filterLocations}/>
+                       value={this.state.searchquery} onChange={this.filterLocations}/>
                 <ul>
                     {this.state.suggestions && locationlist}
                 </ul>
