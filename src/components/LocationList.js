@@ -11,7 +11,7 @@ class LocationList extends Component {
         this.state = {
             'placelocations': '',
             'searchquery': '',
-            'suggestions': true,
+            'suggest': true,
         };
 
         this.filterLocations = this.filterLocations.bind(this);
@@ -51,7 +51,7 @@ class LocationList extends Component {
      */
     toggleSuggestions() {
         this.setState({
-            'suggestions': !this.state.suggestions
+            'suggest': !this.state.suggest
         });
     }
 
@@ -70,7 +70,7 @@ class LocationList extends Component {
                 <input role="search" aria-labelledby="filter" id="search-field" className="search-field" type="text" placeholder="Filter"
                        value={this.state.searchquery} onChange={this.filterLocations}/>
                 <ul>
-                    {this.state.suggestions && locationlist}
+                    {this.state.suggest && locationlist}
                 </ul>
                 <button className="button" onClick={this.toggleSuggestions}>Show/Hide Suggestions</button>
             </div>
