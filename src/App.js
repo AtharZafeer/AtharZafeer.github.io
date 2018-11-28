@@ -230,7 +230,7 @@ class App extends Component {
             <div>
                 <LocationList key="100" alllocations={this.state.alllocations} openInfoWindow={this.openInfoWindow}
                               closeInfoWindow={this.closeInfoWindow}/>
-                <div id="map" aria-role="application"></div>
+                <div id="map" role="application"></div>
             </div>
         );
     }
